@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnl772cfcg6me"]
+
+[ext_resource type="Texture2D" uid="uid://cwx8av1ie4wtd" path="res://art/Pixel Art/Characters/NPC/Person4.png" id="1_ld6jo"]
+[ext_resource type="PackedScene" uid="uid://djdhypib20his" path="res://scenes/media_pr_dialogue.tscn" id="2_nvfxh"]
+[ext_resource type="Script" path="res://scenes/media_dialogue_area.gd" id="2_qoeex"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2rewa"]
+radius = 27.0
+height = 104.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s84ei"]
+radius = 139.014
+
+[node name="MediaPR" type="CharacterBody2D"]
+position = Vector2(-411, -61)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(445.25, 159.75)
+scale = Vector2(0.735955, 0.564257)
+texture = ExtResource("1_ld6jo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(448, 167)
+shape = SubResource("CapsuleShape2D_2rewa")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_qoeex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(454, 172)
+shape = SubResource("CircleShape2D_s84ei")
+
+[node name="MediaPrDialogue" parent="." instance=ExtResource("2_nvfxh")]
+offset_left = 440.0
+offset_top = 79.0
+offset_right = 480.0
+offset_bottom = 119.0

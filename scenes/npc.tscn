@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://pa6k8sq2o3rm"]
+
+[ext_resource type="Texture2D" uid="uid://njdt7opgcv27" path="res://art/Tuxedo.png" id="1_dwyrm"]
+[ext_resource type="Script" path="res://scenes/npc.gd" id="1_fd4hr"]
+[ext_resource type="Script" path="res://scenes/Area2D.gd" id="3_nr4sr"]
+[ext_resource type="PackedScene" uid="uid://bwbesf1riigor" path="res://dialogue/dialogue.tscn" id="3_pyo0t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_776ax"]
+atlas = ExtResource("1_dwyrm")
+region = Rect2(1, 1, 39, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubbs4"]
+atlas = ExtResource("1_dwyrm")
+region = Rect2(1, 31, 39, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmnqg"]
+atlas = ExtResource("1_dwyrm")
+region = Rect2(1, 61, 39, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htofs"]
+atlas = ExtResource("1_dwyrm")
+region = Rect2(1, 91, 39, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_etk1l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_776ax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubbs4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmnqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htofs")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_icupf"]
+radius = 90.0
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_fd4hr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(58.25, 40.5)
+scale = Vector2(3.98718, 3.89286)
+sprite_frames = SubResource("SpriteFrames_etk1l")
+animation = &"idle"
+frame_progress = 0.996064
+flip_h = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(61, 27, 80, 27, 86, 35, 87, 51, 81, 54, 91, 62, 91, 70, 86, 72, 90, 76, 90, 80, 79, 80, 78, 74, 67, 74, 67, 81, 53, 81, 53, 75, 58, 73, 56, 70, 56, 70, 52, 70, 53, 61, 57, 61, 57, 52, 54, 50, 54, 34)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("3_nr4sr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(72, 53)
+shape = SubResource("CircleShape2D_icupf")
+
+[node name="Dialogue" parent="." instance=ExtResource("3_pyo0t")]
+texture_filter = 1
+offset_left = 11.0
+offset_top = -26.0
+offset_right = 51.0
+offset_bottom = 14.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

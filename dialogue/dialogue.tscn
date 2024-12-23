@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwbesf1riigor"]
+
+[ext_resource type="Script" path="res://dialogue/dialogue.gd" id="1_fbnu6"]
+[ext_resource type="Texture2D" uid="uid://c8450rvc2lryv" path="res://art/black_sqaure.jpg" id="1_txbg1"]
+
+[node name="InfoDialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fbnu6")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -78.0
+offset_top = -139.0
+offset_right = 235.0
+offset_bottom = -18.0
+texture = ExtResource("1_txbg1")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+metadata/_edit_group_ = true
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 207.0
+offset_bottom = 27.0
+scale = Vector2(1.5, 1.5)
+text = "Name:"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 45.0
+offset_right = 313.0
+offset_bottom = 121.0
+text = "Chatting..."
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

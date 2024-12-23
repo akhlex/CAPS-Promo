@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvrxaidjxtr8v"]
+
+[ext_resource type="Texture2D" uid="uid://y8ovpevdxyku" path="res://art/Pixel Art/Environment/Tree-Plants/base of the tree.png" id="1_wp8mq"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(547, 202.5)
+scale = Vector2(1.0918, 1.135)
+texture = ExtResource("1_wp8mq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(502, 124, 619, 170, 619, 170, 621, 278, 506, 312, 396, 277, 398, 170)

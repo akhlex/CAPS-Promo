@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dco841i1vxi4g"]
+
+[ext_resource type="Texture2D" uid="uid://dk2etoj4ypv16" path="res://art/Pixel Art/Seats-Etc/Table.png" id="1_v2bkm"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(54.75, 47.25)
+scale = Vector2(4.31818, 4.25862)
+texture = ExtResource("1_v2bkm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(32, 0, 82, 0, 99, 5, 108, 10, 120, 25, 120, 57, 106, 69, 98, 72, 81, 76, 64, 77, 64, 86, 81, 103, 81, 107, 28, 107, 28, 102, 46, 86, 46, 76, 33, 77, 12, 73, -6, 56, -6, 26, 7, 8)

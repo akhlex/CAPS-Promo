@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5tqo1iedpxox"]
+
+[ext_resource type="Texture2D" uid="uid://nimtel777iiv" path="res://art/Pixel Art/Seats-Etc/Main Stall.png" id="1_2qrj2"]
+
+[node name="InfoDesk" type="StaticBody2D"]
+position = Vector2(-16, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(253, 193)
+scale = Vector2(0.585135, 0.628378)
+texture = ExtResource("1_2qrj2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(193, 104, 323, 105, 349, 144, 349, 175, 334, 191, 333, 217, 347, 217, 339, 234, 340, 302, 173, 304, 173, 304, 175, 233, 169, 216, 182, 216, 183, 190, 165, 174, 165, 142)
